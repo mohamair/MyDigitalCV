@@ -456,12 +456,14 @@ function initCVDownload() {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       
-      showToast('Preparing Mohamad Alif Irfan\'s CV for print/export...', 'info');
+      const link = document.createElement('a');
+      link.href = 'files/Resume_Alif_2027.pdf';
+      link.download = 'Resume_Ts_Mohamad_Alif_Irfan.pdf';
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
 
-      setTimeout(() => {
-        window.print();
-        showToast('Print / Save as PDF prompt opened!', 'success');
-      }, 350);
+      showToast('Downloading Ts. Mohamad Alif Irfan\'s CV...', 'success');
     });
   });
 }
